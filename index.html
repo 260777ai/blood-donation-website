@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LifeDrop is a student mini project about blood donation: why it matters, who can donate, blood group compatibility, and a demo donor registration form.">
+  <title>Blood Donation Website | LifeDrop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="demo-bar">
+  Mini project for learning. This site is  does not store any data and is not medical advice.
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="LifeDrop home">
+      <svg class="brand-drop" viewBox="0 0 32 40" aria-hidden="true">
+        <path d="M16 2C16 2 3 17 3 26a13 13 0 0 0 26 0C29 17 16 2 16 2z" fill="currentColor"/>
+      </svg>
+      <span>LifeDrop</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#why">Why donate</a>
+      <a href="#eligibility">Eligibility</a>
+      <a href="#groups">Blood groups</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register" class="nav-cta">Register</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>An hour of your time can give someone a second chance.</h1>
+        <p class="lead">Blood cannot be made in a factory. It only comes from people like you. Find out if you can donate, learn how it works, and sign up as a volunteer donor.</p>
+        <div class="hero-actions">
+          <a href="#eligibility" class="btn btn-primary">Check my eligibility</a>
+          <a href="#register" class="btn btn-ghost">Register as donor</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 480" class="drop-art">
+          <defs>
+            <clipPath id="dropClip">
+              <path d="M200 20C200 20 40 210 40 318a160 160 0 0 0 320 0C360 210 200 20 200 20z"/>
+            </clipPath>
+          </defs>
+          <path class="drop-body" d="M200 20C200 20 40 210 40 318a160 160 0 0 0 320 0C360 210 200 20 200 20z"/>
+          <g clip-path="url(#dropClip)">
+            <path class="drop-shine" d="M110 300c0-50 25-95 55-135" />
+          </g>
+          <path class="pulse-line" d="M70 320h80l24-62 36 124 30-96 18 34h72"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- WHY DONATE -->
+    <section id="why" class="section why">
+      <div class="why-intro">
+        <h2>Why your donation matters</h2>
+        <p>Hospitals need a steady supply of blood every single day, for surgeries, accidents, childbirth complications, cancer treatment and blood disorders.</p>
+      </div>
+      <ul class="why-list">
+        <li>
+          <h3>One donation, several patients</h3>
+          <p>A single unit is separated into red cells, plasma and platelets, so it can help more than one person. It is commonly said that one donation can help save up to three lives.</p>
+        </li>
+        <li>
+          <h3>Blood has a short shelf life</h3>
+          <p>Red cells last about 42 days and platelets only a few days. That is why regular donors are needed, not just a one-time rush after a disaster.</p>
+        </li>
+        <li>
+          <h3>It is quick and safe</h3>
+          <p>The donation itself takes around 10 to 15 minutes. New, sterile, single-use equipment is used for every donor.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ELIGIBILITY -->
+    <section id="eligibility" class="section eligibility">
+      <div class="section-head">
+        <h2>Can I donate blood?</h2>
+        <p>Answer a few questions for a quick indication. The final decision is always made by the doctor at the blood bank or donation camp.</p>
+      </div>
+
+      <div class="elig-grid">
+        <form id="eligibility-form" class="panel" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="age">Age (years)</label>
+              <input type="number" id="age" name="age" min="1" max="100" inputmode="numeric" required>
+            </div>
+            <div class="field">
+              <label for="weight">Weight (kg)</label>
+              <input type="number" id="weight" name="weight" min="1" max="250" inputmode="numeric" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="hb">Haemoglobin (g/dL) <span class="optional">optional</span></label>
+              <input type="number" id="hb" name="hb" min="3" max="25" step="0.1" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="last">Last blood donation</label>
+              <select id="last" name="last" required>
+                <option value="">Select</option>
+                <option value="never">I have never donated</option>
+                <option value="old">More than 3 months ago</option>
+                <option value="recent">Within the last 3 months</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Do any of these apply to you right now?</legend>
+            <label class="check"><input type="checkbox" name="cond" value="I have a fever, cold, cough or infection"> I have a fever, cold, cough or infection</label>
+            <label class="check"><input type="checkbox" name="cond" value="I am pregnant or breastfeeding"> I am pregnant or breastfeeding</label>
+            <label class="check"><input type="checkbox" name="cond" value="I had surgery, a tattoo or piercing in the last 6 months"> I had surgery, a tattoo or a piercing in the last 6 months</label>
+            <label class="check"><input type="checkbox" name="cond" value="I am taking antibiotics or other regular medicines that need a doctor's advice"> I am on antibiotics or other medicines</label>
+            <label class="check"><input type="checkbox" name="cond" value="I have a heart condition, uncontrolled diabetes, hepatitis, HIV or a similar serious illness"> I have a heart condition, uncontrolled diabetes, hepatitis, HIV or a similar serious illness</label>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary">Check eligibility</button>
+        </form>
+
+        <div class="result-col">
+          <div id="elig-result" class="result" role="status" aria-live="polite">
+            <p class="result-title">Your result will appear here</p>
+            <p>Fill in the form and press Check eligibility.</p>
+          </div>
+
+          <div class="basics">
+            <h3>General requirements</h3>
+            <dl>
+              <div><dt>Age</dt><dd>18 to 65 years</dd></div>
+              <div><dt>Weight</dt><dd>at least 45 kg</dd></div>
+              <div><dt>Haemoglobin</dt><dd>12.5 g/dL or more</dd></div>
+              <div><dt>Gap between donations</dt><dd>at least 3 months</dd></div>
+              <div><dt>Health</dt><dd>feeling well on the day</dd></div>
+            </dl>
+            <p class="small">Rules can differ slightly between blood banks and countries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOOD GROUPS -->
+    <section id="groups" class="section groups">
+      <div class="section-head">
+        <h2>Blood group compatibility</h2>
+        <p>Choose a blood group to highlight who it can give red blood cells to and who it can receive from.</p>
+      </div>
+
+      <div class="chips" role="group" aria-label="Select a blood group">
+        <button type="button" class="chip" data-group="O-">O-</button>
+        <button type="button" class="chip" data-group="O+">O+</button>
+        <button type="button" class="chip" data-group="A-">A-</button>
+        <button type="button" class="chip" data-group="A+">A+</button>
+        <button type="button" class="chip" data-group="B-">B-</button>
+        <button type="button" class="chip" data-group="B+">B+</button>
+        <button type="button" class="chip" data-group="AB-">AB-</button>
+        <button type="button" class="chip" data-group="AB+">AB+</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="group-table">
+          <caption class="sr-only">Red blood cell compatibility chart</caption>
+          <thead>
+            <tr><th scope="col">Blood group</th><th scope="col">Can give to</th><th scope="col">Can receive from</th></tr>
+          </thead>
+          <tbody>
+            <tr data-group="O-"><th scope="row">O-</th><td>Everyone (universal donor)</td><td>O-</td></tr>
+            <tr data-group="O+"><th scope="row">O+</th><td>O+, A+, B+, AB+</td><td>O+, O-</td></tr>
+            <tr data-group="A-"><th scope="row">A-</th><td>A-, A+, AB-, AB+</td><td>A-, O-</td></tr>
+            <tr data-group="A+"><th scope="row">A+</th><td>A+, AB+</td><td>A+, A-, O+, O-</td></tr>
+            <tr data-group="B-"><th scope="row">B-</th><td>B-, B+, AB-, AB+</td><td>B-, O-</td></tr>
+            <tr data-group="B+"><th scope="row">B+</th><td>B+, AB+</td><td>B+, B-, O+, O-</td></tr>
+            <tr data-group="AB-"><th scope="row">AB-</th><td>AB-, AB+</td><td>AB-, A-, B-, O-</td></tr>
+            <tr data-group="AB+"><th scope="row">AB+</th><td>AB+ only</td><td>Everyone (universal recipient)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section process">
+      <div class="section-head">
+        <h2>What happens on donation day</h2>
+        <p>The whole visit usually takes about an hour.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Registration</h3>
+          <p>You fill in a short form and show an ID proof.</p>
+        </li>
+        <li>
+          <h3>Health check</h3>
+          <p>Staff check your weight, pulse, blood pressure and haemoglobin, and ask a few health questions.</p>
+        </li>
+        <li>
+          <h3>Donation</h3>
+          <p>You sit or lie down while about 350 to 450 ml of blood is collected in 10 to 15 minutes.</p>
+        </li>
+        <li>
+          <h3>Rest and refresh</h3>
+          <p>You rest for a few minutes and have a snack and a drink before leaving.</p>
+        </li>
+      </ol>
+
+      <div class="aftercare">
+        <h3>Before and after</h3>
+        <div class="two-col">
+          <div>
+            <h4>Before you donate</h4>
+            <ul>
+              <li>Sleep well the night before.</li>
+              <li>Eat a normal meal and drink extra water.</li>
+              <li>Carry a photo ID.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>After you donate</h4>
+            <ul>
+              <li>Drink more fluids for the next day.</li>
+              <li>Avoid heavy exercise and lifting for 24 hours.</li>
+              <li>Sit down and tell someone if you feel dizzy.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register" class="section register">
+      <div class="register-copy">
+        <h2>Become a volunteer donor</h2>
+        <p>Tell us a little about yourself and we would let you know when donors with your blood group are needed nearby.</p>
+        <p class="demo-note"><strong>Demo form.</strong> This is a student prototype. Nothing you type is sent, saved or shared, so please do not enter real personal details.</p>
+      </div>
+
+      <form id="register-form" class="panel" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="reg-age">Age</label>
+            <input type="number" id="reg-age" name="reg-age" min="18" max="65" inputmode="numeric" required>
+          </div>
+          <div class="field">
+            <label for="group">Blood group</label>
+            <select id="group" name="group" required>
+              <option value="">Select</option>
+              <option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option>
+              <option>O+</option><option>O-</option>
+              <option>AB+</option><option>AB-</option>
+              <option>I do not know</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <label class="check consent">
+          <input type="checkbox" id="consent" required>
+          I am healthy, at least 18 years old, and I understand that a doctor makes the final decision on my donation.
+        </label>
+
+        <button type="submit" class="btn btn-primary">Register as donor</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq">
+      <div class="section-head">
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Does donating blood hurt?</summary>
+          <p>You feel a quick pinch when the needle goes in. After that most people feel little or nothing.</p>
+        </details>
+        <details>
+          <summary>Will I feel weak afterwards?</summary>
+          <p>Your body replaces the fluid within about a day. Resting, eating well and drinking water helps. Most people carry on with normal activities the same day.</p>
+        </details>
+        <details>
+          <summary>How often can I donate?</summary>
+          <p>Whole blood can generally be donated every 3 months. Your blood bank will confirm the gap that applies to you.</p>
+        </details>
+        <details>
+          <summary>Can I get any disease from donating?</summary>
+          <p>No. Blood banks use a new, sterile, single-use needle and bag for every donor.</p>
+        </details>
+        <details>
+          <summary>Where do I find a real blood bank?</summary>
+          <p>Use the official links in the section below, or ask at your nearest government hospital or Red Cross centre.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="contact" class="section resources">
+      <div class="section-head">
+        <h2>Ready for the real thing?</h2>
+        <p>This website is only a learning project. To donate or to find blood in an emergency, use official sources.</p>
+      </div>
+      <div class="resource-links">
+        <a class="resource" href="https://www.eraktkosh.in" target="_blank" rel="noopener">
+          <strong>e-RaktKosh</strong>
+          <span>Government of India blood bank portal to find blood banks and camps.</span>
+        </a>
+        <a class="resource" href="https://indianredcross.org" target="_blank" rel="noopener">
+          <strong>Indian Red Cross Society</strong>
+          <span>Blood centres, donation drives and volunteer information.</span>
+        </a>
+        <div class="resource">
+          <strong>Your nearest hospital</strong>
+          <span>Government and private hospital blood banks accept voluntary donors every day.</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="footer-brand">LifeDrop Blood Donation Website</p>
+      <p>Mini project, Fundamentals of Full Stack</p>
+    </div>
+    <div>
+      <p>Dasineni Rushitha</p>
+      <p>Register No. 111626111031</p>
+      <p>R.M.K. College of Engineering and Technology</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
